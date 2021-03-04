@@ -21,7 +21,7 @@ jobs: # a collection of steps
           MYSQL_DATABASE: task_crud 
           MYSQL_USER: nazwa_uzytkownika
           MYSQL_PASSWORD: twoje_haslo
-    s teps: # a collection of executable commands
+    steps: # a collection of executable commands
       - checkout # check out source code to working directory
       # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
       - restore_cache:
