@@ -9,7 +9,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
@@ -41,7 +40,7 @@ class SimpleEmailServiceTest {
         simpleEmailService.send(mail);
 
         //Then
-        verify(javaMailSender, times(1)).send(mailMessage);
+        verify(javaMailSender).send(mailMessage);
     }
 
     @Test
@@ -63,6 +62,6 @@ class SimpleEmailServiceTest {
         simpleEmailService.send(mail);
 
         //Then
-        verify(javaMailSender, times(1)).send(mailMessage);
+        verify(javaMailSender).send(mailMessage);
     }
 }
