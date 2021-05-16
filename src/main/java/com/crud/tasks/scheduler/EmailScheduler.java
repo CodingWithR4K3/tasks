@@ -23,7 +23,7 @@ public class EmailScheduler {
         simpleEmailService.send(Mail.builder()
                 .mailTo(adminConfig.getAdminMail())
                 .subject(SUBJECT)
-                .message("Currently in database you got: " + size + " tasks")
+                .message("Currently in database you got: " + size + (size == 1 ? "task" : "tasks"))
                 .toCc(null)
                 .build());
     }
