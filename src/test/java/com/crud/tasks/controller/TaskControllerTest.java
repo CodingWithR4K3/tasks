@@ -48,7 +48,7 @@ class TaskControllerTest {
         //When & Then
         mockMvc.perform(MockMvcRequestBuilders.get("/v1/task/getTasks")
                 .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().is(200))
+                .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$", Matchers.hasSize(0)));
     }
 
@@ -98,12 +98,11 @@ class TaskControllerTest {
         String toJson = gson.toJson(taskDto);
 
         //When & Then
-        mockMvc.perform(
-                MockMvcRequestBuilders.put("/v1/task/updateTask").
-                        contentType(MediaType.APPLICATION_JSON)
-                        .characterEncoding("UTF-8")
-                        .content(toJson))
-                .andExpect(MockMvcResultMatchers.status().is(200))
+        mockMvc.perform(MockMvcRequestBuilders.put("/v1/task/updateTask").
+                contentType(MediaType.APPLICATION_JSON)
+                .characterEncoding("UTF-8")
+                .content(toJson))
+                .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.title", Matchers.is("update")))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.content", Matchers.is("update")));
     }
@@ -120,11 +119,10 @@ class TaskControllerTest {
         String toJson = gson.toJson(taskDto);
 
         //When & Then
-        mockMvc.perform(
-                MockMvcRequestBuilders.post("/v1/task/createTask").
-                        contentType(MediaType.APPLICATION_JSON)
-                        .characterEncoding("UTF-8")
-                        .content(toJson))
-                .andExpect(MockMvcResultMatchers.status().is(200));
+        mockMvc.perform(MockMvcRequestBuilders.post("/v1/task/createTask").
+                contentType(MediaType.APPLICATION_JSON)
+                .characterEncoding("UTF-8")
+                .content(toJson))
+                .andExpect(MockMvcResultMatchers.status().isOk());
     }
 }
