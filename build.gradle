@@ -21,6 +21,7 @@ dependencies {
 	implementation 'mysql:mysql-connector-java'
 	//implementation 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'com.google.code.gson:gson'
 }
 test {
 	useJUnitPlatform()
