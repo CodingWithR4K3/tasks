@@ -1,7 +1,6 @@
 package com.crud.tasks.service;
 
 import com.crud.tasks.config.AdminConfig;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
@@ -14,12 +13,9 @@ import java.util.List;
 @Service
 public class MailCreatorService {
 
-    @Autowired
-    private AdminConfig adminConfig;
+    private final AdminConfig adminConfig;
 
-    @Autowired
-    @Qualifier("templateEngine")
-    private TemplateEngine templateEngine;
+    private final TemplateEngine templateEngine;
 
     private final List<String> functionality = Arrays.asList(
             "You can manage your tasks",
@@ -27,6 +23,11 @@ public class MailCreatorService {
             "Application allows sending tasks to Trello"
     );
     Context context = new Context();
+
+    public MailCreatorService(AdminConfig adminConfig, @Qualifier("templateEngine") TemplateEngine templateEngine) {
+        this.adminConfig = adminConfig;
+        this.templateEngine = templateEngine;
+    }
 
     public String buildTrelloCardEmail(String build) {
         buildContext(build);
