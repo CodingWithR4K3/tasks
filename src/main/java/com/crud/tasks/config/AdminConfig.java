@@ -20,7 +20,7 @@ public class AdminConfig {
     @Value("${info.company.goal}")
     private String companyGoal;
 
-    @Value("${info.company.phone")
+    @Value("${info.company.phone}")
     private String companyPhone;
 
     @Value("${info.app.name}")
