@@ -20,8 +20,8 @@ dependencies {
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-mail', version: '2.3.7.RELEASE'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '3.0.0'
-	implementation 'mysql:mysql-connector-java'
-	//implementation 'org.postgresql:postgresql'
+	//implementation 'mysql:mysql-connector-java'
+	implementation 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'com.google.code.gson:gson'
 }
